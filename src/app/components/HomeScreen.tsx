@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Calendar, Users } from "lucide-react";
+import { Calendar, Users, Heart } from "lucide-react";
 
 const CREATED_TRIPS = [
   { id: 5, title: "Mountain Trek", location: "Swiss Alps", date: "Jun 10", participants: "4/10", tags: ["Hiking"] },
@@ -12,11 +12,15 @@ const JOINED_TRIPS = [
   { id: 3, title: "Old Town Discovery", location: "Prague, CZ", date: "May 1", participants: "8/15", tags: ["Culture", "City"] },
 ];
 
+const FAVORITE_TRIPS = [
+  { id: 7, title: "Mountain Trek", location: "Swiss Alps", date: "Jun 10", participants: "4/10", tags: ["Hiking"] },
+];
+
 export function HomeScreen() {
   const navigate = useNavigate();
-  const [tab, setTab] = useState<"created" | "joined">("created");
+  const [tab, setTab] = useState<"created" | "joined" | "favorites">("created");
 
-  const displayTrips = tab === "created" ? CREATED_TRIPS : JOINED_TRIPS;
+  const displayTrips = tab === "created" ? CREATED_TRIPS : tab === "joined" ? JOINED_TRIPS : FAVORITE_TRIPS;
 
   return (
     <div className="min-h-screen bg-background pb-20">
@@ -26,11 +30,11 @@ export function HomeScreen() {
 
       {/* Tabs */}
       <div className="px-4 flex gap-2 mb-3">
-        {(["created", "joined"] as const).map((t) => (
+        {(["created", "joined", "favorites"] as const).map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
-            className={`flex-1 py-2 rounded-md text-sm border capitalize ${
+            className={`flex-1 py-2 rounded-md text-sm border capitalize flex items-center justify-center gap-1 ${
               tab === t ? "bg-primary text-white border-primary" : "border-border bg-white"
             }`}
           >
