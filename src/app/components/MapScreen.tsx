@@ -195,9 +195,9 @@ export function MapScreen() {
 
             <div className="space-y-2">
               <p className="text-xs text-muted-foreground">Price Range</p>
-              <div className="flex gap-2">
-                <input className="flex-1 bg-muted rounded-xl px-3 py-2 text-sm border border-black/[0.06]" placeholder="Min €" />
-                <input className="flex-1 bg-muted rounded-xl px-3 py-2 text-sm border border-black/[0.06]" placeholder="Max €" />
+              <div className="space-y-2">
+                <input className="w-full bg-muted rounded-xl px-3 py-2 text-sm border border-black/[0.06]" placeholder="Min price €" />
+                <input className="w-full bg-muted rounded-xl px-3 py-2 text-sm border border-black/[0.06]" placeholder="Max price €" />
               </div>
             </div>
 
