@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router";
-import { Calendar, Users, MapPin, List, Heart, SlidersHorizontal, Search, X } from "lucide-react";
+import { Calendar, Users, MapPin, List, SlidersHorizontal, Search, X } from "lucide-react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -641,14 +641,9 @@ export function MapScreen() {
                       />
                     </div>
                     <div className="p-3">
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium truncate">{trip.title}</p>
-                          <p className="text-xs text-muted-foreground truncate">{trip.location}</p>
-                        </div>
-                        <button className="p-1.5 rounded-full hover:bg-secondary transition-colors">
-                          <Heart className="w-4 h-4 text-muted-foreground" />
-                        </button>
+                      <div>
+                        <p className="text-sm font-medium truncate">{trip.title}</p>
+                        <p className="text-xs text-muted-foreground truncate">{trip.location}</p>
                       </div>
                       <div className="flex justify-between mt-2 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
@@ -697,14 +692,9 @@ export function MapScreen() {
                   />
                 </div>
                 <div className="p-3">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
-                      <p className="text-sm font-medium">{trip.title}</p>
-                      <p className="text-xs text-muted-foreground">{trip.location}</p>
-                    </div>
-                    <button className="p-1.5 rounded-full hover:bg-secondary transition-colors">
-                      <Heart className="w-4 h-4 text-muted-foreground" />
-                    </button>
+                  <div>
+                    <p className="text-sm font-medium">{trip.title}</p>
+                    <p className="text-xs text-muted-foreground">{trip.location}</p>
                   </div>
                   <div className="flex justify-between mt-2 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
